@@ -1,0 +1,80 @@
+<template>
+  
+ 
+    <!-- Modal/Popup Box LWC starts here -->
+   
+      <div class="slds-modal__container">
+        <!-- Modal/Popup Box LWC header here -->
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+            onclick={closeModal}
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small"
+            ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2
+            id="modal-heading-01"
+            class="slds-text-heading_medium slds-hyphenate"
+          >
+            New Invoice Record Form
+          </h2>
+        </header>
+        <!-- Modal/Popup Box LWC body starts here -->
+
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-1"
+        >
+          <div class="slds-m-around_medium">
+           
+            <lightning-input
+              type="Date"
+              onchange={sdatefield}
+              value={InvoiceDate}
+              label="Enter Start Date of Invoice"
+            ></lightning-input>
+            <lightning-input
+              type="Date"
+              onchange={datefield}
+              value={PaidDate}
+              label="Enter Paid Date of Invoice"
+            ></lightning-input>
+               
+              <div if:true={isLoaded} class="slds-is-relative">
+                  <lightning-spinner alternative-text="Loading...">
+                  </lightning-spinner>
+              </div>
+          
+            <lightning-input
+            type="Number"
+            onchange={Amountfield}
+            label="Enter Amount "
+          ></lightning-input>
+
+            <lightning-input
+              type="checkbox"
+              label="Create new record?"
+              onchange={handleCheckboxChange}
+            ></lightning-input>
+
+            <div class="slds-m-top_medium">
+              <lightning-button
+                variant="brand"
+                label="Create Record"
+                onclick={handleCreateRecord}
+              ></lightning-button>
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</template>
